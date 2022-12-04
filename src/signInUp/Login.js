@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
+
 import useToken from '../Components/useToken';
 import { AuthContext } from '../UserContext/UserContext';
 
@@ -18,7 +19,6 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
-    // const from = location.state?.from?.pathname || '/'
     const formHandler = data => {
         // console.log(data)
         const { email, password } = data
@@ -26,7 +26,6 @@ const Login = () => {
         loginEmailPassword(email, password)
             .then(result => {
                 const user = result.user
-                // console.log(user)
                 setLoginEmail(email)
 
             })
@@ -63,8 +62,9 @@ const Login = () => {
                 setLoginEmail(email)
             })
     }
+
     return (
-        <div className='w-2/5 mx-auto mb-20 mt-14 card shadow-xl px-14 pt-8 pb-20'>
+        <div className='lg:w-2/5 w-full mx-auto mb-20 mt-14 card shadow-xl px-14 pt-8 pb-20'>
             <p className='text-center text-3xl'>Login</p>
             <div>
                 <form onSubmit={handleSubmit(formHandler)}>

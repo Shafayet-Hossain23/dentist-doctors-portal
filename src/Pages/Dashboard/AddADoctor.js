@@ -77,7 +77,7 @@ const AddADoctor = () => {
             <div>
                 <h1 className='text-2xl font-medium mb-5'>Add A Doctor</h1>
             </div>
-            <form onSubmit={handleSubmit(addDoctorHandler)} className="w-2/3 ml-4">
+            <form onSubmit={handleSubmit(addDoctorHandler)} className="lg:w-2/3 w-full  lg:ml-4">
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text font-semibold">Name?</span>
@@ -120,11 +120,6 @@ const AddADoctor = () => {
                     <label className="label">
                         <span className="label-text font-semibold">Upload Your Photo?</span>
                     </label>
-                    {/* <input
-                        {...register("image", {
-                            required: "Image is required "
-                        })}
-                        type="file" placeholder="Upload Your Photo" className="input input-bordered w-full" /> */}
                     <input
                         {...register("image", {
                             required: "Image is required "

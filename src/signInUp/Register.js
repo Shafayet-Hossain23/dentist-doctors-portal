@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../UserContext/UserContext';
+
 import toast, { Toaster } from 'react-hot-toast';
 import useToken from '../Components/useToken';
+import { AuthContext } from '../UserContext/UserContext';
 
 const Register = () => {
     const { registerEmailPassword, profileUpdate, setLoading } = useContext(AuthContext)
@@ -29,7 +30,7 @@ const Register = () => {
                 // console.log(user)
                 profileUpdate(userName)
                     .then(result => {
-                        toast.success("Successfully Register")
+
                         saveUserData(userName, email)
                     })
 
@@ -54,24 +55,13 @@ const Register = () => {
                 // console.log(data)
                 // getAccessToken(email)
                 setUserCreatedEmail(email)
+                toast.success("Successfully Register")
                 setLoading(false)
             })
     }
-    /*  const getAccessToken = (email) => {
-         fetch(`https://doctors-portal-server-sand.vercel.app/jwt?email=${email}`)
-             .then(res => res.json())
-             .then(data => {
-                 if (data.accessToken) {
-                     localStorage.setItem("accessToken", data.accessToken)
-                     navigate('/')
-                 }
- 
-             }) 
-    }*/
-
 
     return (
-        <div className='w-2/5 mx-auto mb-20 mt-14 card shadow-xl px-14 pt-8 pb-20'>
+        <div className='lg:w-2/5 w-full mx-auto mb-20 mt-14 card shadow-xl px-14 pt-8 pb-20'>
             <p className='text-center text-3xl'>Register</p>
             <form onSubmit={handleSubmit(registerHandler)}>
                 <div className="form-control w-full ">
